@@ -9,6 +9,7 @@ RUN apt-get update \
   && pip install --upgrade pip \
   && pip install Flask \
   && pip install Flask-wtf \
+  && pip install Flask-AutoIndex \
   && cd /root \
   && git clone https://github.com/frizb/Vanquish \
   && cd /root/Vanquish \
