@@ -1,0 +1,22 @@
+apt-get update
+apt-get install -y \
+    hydra \
+    metasploit-framework \
+    nmap \
+    sqlmap \
+    wfuzz \
+    exploitdb \
+    nikto \
+    commix \
+    hashcat \
+    # Wordlists
+    wordlists \ 
+    cewl \
+    git \
+    python
+
+cd /root
+git clone https://github.com/frizb/Vanquish
+cd Vanquish
+python Vanquish2.py -install
+pip install Flask-AutoIndex 
