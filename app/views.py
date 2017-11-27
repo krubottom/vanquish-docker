@@ -13,6 +13,11 @@ from flask.ext.autoindex import AutoIndex
 def index():
 	return render_template('index.html', title='Home', links=site_map_links())
 
+# Display current hosts file
+@app.route("/hosts")
+def hosts():
+	return render_template('hosts.html', title='Hosts', links=site_map_links(), hosts=list_hosts())
+
 # Show directory of files for download
 @app.route('/files/', defaults={'req_path': ''})
 @app.route('/files/<path:req_path>')
@@ -62,3 +67,7 @@ def site_map_links():
 
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+def list_hosts():
+	hosts_file = open("app/hosts.txt","r")
+	return hosts_file.read()
